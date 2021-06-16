@@ -104,8 +104,18 @@ session_start();
   
 </section>
 
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
 
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('#cpf').mask('000.000.000-00');
+      $('#telefone').mask('(00) 00000-0000');
+      $('#rg').mask('00.000.000.0');
+      $('#cep').mask('00000-000')
+    })
+  </script>
+
 </body>
 </html>
