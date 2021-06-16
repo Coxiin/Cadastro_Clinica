@@ -1,3 +1,6 @@
+<?php
+include 'conexao.php';
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -32,7 +35,6 @@
       <table class="table table-hover">
         <thead class="thead">
           <th>Nome</th>
-          <th class="text-center">E-mail</th>
           <th class="text-center">R.G</th>
           <th class="text-center">C.P.F</th>
           <th class="text-center">Telefone</th>
@@ -40,28 +42,53 @@
           <th colspan="3">Opções</th>
         </thead>
 
-        <tbody>
-          <td></td>
-          <td class="text-center"></td>
-          <td class="text-center"></td>
-          <td class="text-center"></td>
-          <td class="text-center"></td>
-          <td class="text-center"></td>
-          <td>
-            <form method="POST" action="">
-              <button class="btn btn-warning btn-xs">
-                <i class="fa fa-user-edit"></i>
-              </button>
-            </form>
-          </td>
-          <td>
-            <form method="POST" action="">
-              <button class="btn btn-danger btn-xs">
-                <i class="fa fa-trash"></i>
-              </button>
-            </form>
-          </td>
-        </tbody>
+        <?php
+        $sql = "SELECT * FROM vw_paciente";
+        if ($res = mysqli_query($conn, $sql)) {
+          $nomePaciente = array();
+          $rgPaciente = array();
+          $cpfPaciente = array();
+          $telefonePaciente = array();
+          $doencaPaciente = array();
+          $i = 0;
+
+          while ($reg = mysqli_fetch_assoc($res)) {
+            $nomePaciente[$i] = $reg['nome_paci'];
+            $rgPaciente[$i] = $reg['rg_paci'];
+            $cpfPaciente[$i] = $reg['cpf_paci'];
+            $telefonePaciente[$i] = $reg['telefone_paci'];
+            $doencaPaciente[$i] = $reg['doenca_paci'];
+        ?>
+
+            <tbody>
+              <td><?php echo $nomePaciente[$i] ?></td>
+              <td class="text-center"><?php echo $rgPaciente[$i] ?></td>
+              <td class="text-center"><?php echo $cpfPaciente[$i] ?></td>
+              <td class="text-center"><?php echo $telefonePaciente[$i] ?></td>
+              <td class="text-center"><?php echo $doencaPaciente[$i] ?></td>
+              <td>
+                <a href="#">
+                  <button class="btn btn-warning btn-xs">
+                    <i class="fa fa-user-edit"></i>
+                  </button>
+                </a>
+              </td>
+              <td>
+                <a href="#">
+                  <button class="btn btn-danger btn-xs">
+                    <i class="fa fa-trash"></i>
+                  </button>
+
+              </td>
+            </tbody>
+        <?php
+            $i++;
+          }
+        } else {
+          echo "Erro ao executar a querry!";
+        }
+        ?>
+
       </table>
     </div>
   </section>
