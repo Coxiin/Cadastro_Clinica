@@ -112,7 +112,7 @@ session_start();
     $(document).ready(function() {
       $('#cpf').mask('000.000.000-00');
       $('#telefone').mask('(00) 00000-0000');
-      $('#rg').mask('00.000.000.0');
+      $('#rg').mask('00.000.000-0');
       $('#cep').mask('00000-000')
     })
   </script>
