@@ -18,7 +18,7 @@ session_start();
   <div class="box">
     <div class="box-header">
       <div class="box-title">
-        <h2 class="text-center">Cadastrar Pacientes</h2>
+        <h2 class="text-center">Cadastrar Paciente</h2>
       </div><hr />
       <div class="box-body">
         <form action="dbForm.php" method="POST" enctype="multipart/form-data"> 
